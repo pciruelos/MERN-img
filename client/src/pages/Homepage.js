@@ -1,5 +1,6 @@
 import {usePosts} from '../context/postContext'
 import {Link} from 'react-router-dom'
+import {Postcard} from '../components/Postcard'
 
 export function Homepage() {
 
@@ -12,14 +13,14 @@ export function Homepage() {
   )
 
   return (
-    <div className="text-3xl">
+    <div className="text-xl font-bold text-white">
       <Link to={"/new"}>
-        <button className='btn bg-blue-700'>
+        <button className='btn bg-blue-700 rounded-lg p-4'>
           Create new task
         </button>
       </Link>
-      <div className='bg-[#ff9b9b]'>
-      {posts.map(p => <h1 className='px-4' key={p._id}>{p.title}</h1>)}
+      <div className='grid grid-cols-3 gap-2'>
+      {posts.map(p => <Postcard post={p} key={p._id} /> )}
       </div>
     </div>
   )
