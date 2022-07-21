@@ -23,8 +23,12 @@ export const PostProvider = ({ children }) => {
   };
   //create post
   const createPost = async(post) => {
-    const res = await createPostRequest(post)
-    setPosts([...posts, res.data])
+    try {
+      const res = await createPostRequest(post)
+      setPosts([...posts, res.data])
+    } catch (error) {
+      console.log(error)
+    }
 
   }
   //delete post DATO: _id compara con el id q recivo , son dos diferrentes

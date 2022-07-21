@@ -49,6 +49,7 @@ export function Postcard({post}) {
         <p className='text-lg font-normal'>
         {post.description}
         </p>
+        {post.image && <img src={post.image.url} /> }
         </div>
         <div className="flex justify-between">
             <button className="bg-red-600 text-sm rounded-sm text-white font-normal px-2 py-1"
