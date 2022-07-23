@@ -39,19 +39,20 @@ export function Postcard({post}) {
      };
 
   return (
+<div className='break-inside-avoid'>
 
-    <div className=" text-black bg-zinc-100 rounded-xl shadow-sm shadow-black hover:bg-zinc-500 hover:cursor-pointer p-3 m-2">
+    <div className="text-black bg-zinc-100 rounded-xl shadow-sm shadow-black hover:bg-zinc-500 hover:cursor-pointer p-3 m-2">
 
         <div>
-        <h3 className="text-center underline">
+        <h3 className="text-center italic pb-4">
         {post.title}
         </h3>
-        <p className='text-lg font-normal'>
+        {post.image && <img src={post.image.url} className="mx-auto"/> }
+        </div>
+        <p className='text-lg font-normal py-2'>
         {post.description}
         </p>
-        {post.image && <img src={post.image.url} /> }
-        </div>
-        <div className="flex justify-between">
+        <div className="flex justify-around">
             <button className="bg-red-600 text-sm rounded-sm text-white font-normal px-2 py-1"
             onClick={() => handleDelete(post._id)}>
                 Delete
@@ -62,6 +63,8 @@ export function Postcard({post}) {
             </button>
         </div>
 
+    </div>
+    
     </div>
   )
 }
